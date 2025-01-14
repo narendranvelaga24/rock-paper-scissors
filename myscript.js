@@ -1,3 +1,5 @@
+let humanScore = 0, computerScore = 0;
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     switch(choice) {
@@ -17,4 +19,4 @@ function getHumanChoice() {
     return choice;  
 }
 
-console.log(getHumanChoice());
+//console.log(getHumanChoice());
