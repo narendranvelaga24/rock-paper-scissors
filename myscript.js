@@ -10,4 +10,11 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
+//console.log(getComputerChoice());
+
+function getHumanChoice() {
+    let choice = prompt("Please enter your choice: ", "rock/paper/scissor");
+    return choice;  
+}
+
+console.log(getHumanChoice());
