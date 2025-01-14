@@ -72,27 +72,27 @@ function playRound(humanChoice, computerChoice) {
 
 
 /**
- * Simulates a game where a human plays against a computer for 5 rounds.
- * In each round, both the human and the computer make a choice, and the result is logged.
- * After all rounds, the scores are compared and the overall winner is announced.
+ * Initiates a game session where a human player competes against a computer.
+ * The game consists of 5 rounds, and in each round, both the human and computer
+ * make a selection. The result of each round is displayed to the player.
  */
 function playGame() {
     for (let i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice(); 
-        console.log(playRound(humanSelection, computerSelection)); 
-    }
-
-    console.log("Human Score: ", humanScore); 
-    console.log("Computer Score: ", computerScore); 
-
-    if (humanScore > computerScore) {
-        console.log("You win the game!"); 
-    } else if (humanScore < computerScore) {
-        console.log("You lose the game!"); 
-    } else {
-        console.log("It's a tie game!"); 
+        alert(playRound(humanSelection, computerSelection)); 
     }
 }
 
 playGame();
+
+alert(`Human Score: ${humanScore}`);
+alert(`Computer Score: ${computerScore}`); 
+
+if (humanScore > computerScore) {
+    alert("You win the game!"); 
+} else if (humanScore < computerScore) {
+    alert("You lose the game!"); 
+} else {
+    alert("It's a tie game!"); 
+}
