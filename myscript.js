@@ -12,11 +12,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice = prompt("Please enter your choice: ", "rock/paper/scissor");
-    return choice.toLowerCase(); 
-}
-
 function playRound(humanChoice, computerChoice) {
     console.log("Human: ", humanChoice);
     console.log("Computer: ", computerChoice);
@@ -50,26 +45,55 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame(event) {
-    const humanSelection = event.target.id;
-    const computerSelection = getComputerChoice(); 
-    document.querySelector(".result").textContent = playRound(humanSelection, computerSelection);
-    
-    //showFinalResult();    
-}
-
 function showFinalResult() {
-    alert(`Final Scores:\nHuman: ${humanScore}\nComputer: ${computerScore}`);
-    
     if (humanScore > computerScore) {
-        alert("You win the game!");
+        return "You win the game!";
     } else if (humanScore < computerScore) {
-        alert("You lose the game!");
+        return "You lose the game!";
     } else {
-        alert("It's a tie game!");
+        return "It's a tie game!";
     }
 }
 
-document.querySelector("#rock").addEventListener("click", playGame);
-document.querySelector("#paper").addEventListener("click", playGame);
-document.querySelector("#scissor").addEventListener("click", playGame);
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissor = document.querySelector("#scissor")
+const reset = document.querySelector("#reset")
+
+rock.addEventListener("click", playGame);
+paper.addEventListener("click", playGame);
+scissor.addEventListener("click", playGame);
+reset.addEventListener("click", resetGame);
+reset.style.display = "none";
+
+const result = document.querySelector(".result");
+const score = document.querySelector(".score");
+const finalResult = document.querySelector(".final");
+
+function playGame(event) {
+    const humanSelection = event.target.id;
+    const computerSelection = getComputerChoice(); 
+    result.textContent = playRound(humanSelection, computerSelection);
+    score.textContent = `Human: ${humanScore} Computer: ${computerScore}`;
+    if (humanScore === 5 || computerScore === 5) {
+        finalResult.textContent = showFinalResult();
+        rock.disabled = true;
+        paper.disabled = true;
+        scissor.disabled = true;
+        reset.style.display = "block";
+    }  
+}
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    result.textContent = "";
+    score.textContent = `Human: 0 Computer: 0`;
+    finalResult.textContent = "";
+    
+    rock.disabled = false;
+    paper.disabled = false;
+    scissor.disabled = false;
+    reset.style.display = "none"; 
+}
+
