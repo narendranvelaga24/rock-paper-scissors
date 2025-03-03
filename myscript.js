@@ -50,21 +50,25 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    const humanSelection = getHumanChoice();
+function playGame(event) {
+    const humanSelection = event.target.id;
     const computerSelection = getComputerChoice(); 
-    alert(playRound(humanSelection, computerSelection));    
+    alert(playRound(humanSelection, computerSelection));
+    //showFinalResult();    
 }
 
-playGame();
-
-alert(`Human Score: ${humanScore}`);
-alert(`Computer Score: ${computerScore}`); 
-
-if (humanScore > computerScore) {
-    alert("You win the game!"); 
-} else if (humanScore < computerScore) {
-    alert("You lose the game!"); 
-} else {
-    alert("It's a tie game!"); 
+function showFinalResult() {
+    alert(`Final Scores:\nHuman: ${humanScore}\nComputer: ${computerScore}`);
+    
+    if (humanScore > computerScore) {
+        alert("You win the game!");
+    } else if (humanScore < computerScore) {
+        alert("You lose the game!");
+    } else {
+        alert("It's a tie game!");
+    }
 }
+
+document.querySelector("#rock").addEventListener("click", playGame);
+document.querySelector("#paper").addEventListener("click", playGame);
+document.querySelector("#scissor").addEventListener("click", playGame);
