@@ -55,9 +55,9 @@ function showFinalResult() {
     }
 }
 
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissor = document.querySelector("#scissor")
+const rock = document.querySelector("#Rock");
+const paper = document.querySelector("#Paper");
+const scissor = document.querySelector("#Scissor")
 const reset = document.querySelector("#reset")
 
 rock.addEventListener("click", playGame);
