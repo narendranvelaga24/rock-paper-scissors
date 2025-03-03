@@ -53,7 +53,8 @@ function playRound(humanChoice, computerChoice) {
 function playGame(event) {
     const humanSelection = event.target.id;
     const computerSelection = getComputerChoice(); 
-    alert(playRound(humanSelection, computerSelection));
+    document.querySelector(".result").textContent = playRound(humanSelection, computerSelection);
+    
     //showFinalResult();    
 }
 
