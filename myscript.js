@@ -4,11 +4,11 @@ function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     switch(choice) {
         case 0:
-            return "rock";
+            return "Rock";
         case 1:
-            return "paper";
+            return "Paper";
         case 2:
-            return "scissor";
+            return "Scissor";
     }
 }
 
@@ -18,16 +18,16 @@ function playRound(humanChoice, computerChoice) {
     if(humanChoice === computerChoice) {
         return "It's a tie!";
     }
-    if(humanChoice === "rock"){
-        if(computerChoice === "paper") {
+    if(humanChoice === "Rock"){
+        if(computerChoice === "Paper") {
             computerScore++;
             return "You lose! Paper beats Rock";
         } else {
             humanScore++;
             return "You win! Rock beats Scissor";
         }
-    }else if(humanChoice === "paper") {
-        if(computerChoice === "scissor") {
+    }else if(humanChoice === "Paper") {
+        if(computerChoice === "Scissor") {
             computerScore++;
             return "You lose! Scissor beats Paper";
         } else {
@@ -35,7 +35,7 @@ function playRound(humanChoice, computerChoice) {
             return "You win! Paper beats Rock";
         }
     } else {
-        if(computerChoice === "rock") {
+        if(computerChoice === "Rock") {
             computerScore++;
             return "You lose! Rock beats Scissor";
         } else {
@@ -66,6 +66,7 @@ scissor.addEventListener("click", playGame);
 reset.addEventListener("click", resetGame);
 reset.style.display = "none";
 
+const computer = document.querySelector(".computer");
 const result = document.querySelector(".result");
 const score = document.querySelector(".score");
 const finalResult = document.querySelector(".final");
@@ -73,6 +74,7 @@ const finalResult = document.querySelector(".final");
 function playGame(event) {
     const humanSelection = event.target.id;
     const computerSelection = getComputerChoice(); 
+    computer.textContent = `Computer: ${computerSelection}`;
     result.textContent = playRound(humanSelection, computerSelection);
     score.textContent = `Human: ${humanScore} Computer: ${computerScore}`;
     if (humanScore === 5 || computerScore === 5) {
@@ -87,6 +89,7 @@ function playGame(event) {
 function resetGame() {
     humanScore = 0;
     computerScore = 0;
+    computer.textContent = "";
     result.textContent = "";
     score.textContent = `Human: 0 Computer: 0`;
     finalResult.textContent = "";

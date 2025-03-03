@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+/* Container for the buttons */
+div {
+    margin: 10px 0;
+}
+
+/* Button Styles */
+button {
+    background-color: #1f1f1f; /* Dark button background */
+    border: 2px solid #4CAF50; /* Green border */
+    color: #e0e0e0; /* Light text */
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4CAF50; /* Green background on hover */
+    border-color: #45a049; /* Darker green border on hover */
+    color: #121212; /* Dark text on hover */
+}
+
+button:disabled {
+    background-color: #333333; /* Dark gray for disabled buttons */
+    border-color: #666666; /* Gray border for disabled buttons */
+    color: #666666; /* Gray text for disabled buttons */
+    cursor: not-allowed;
+}
+
+/* Reset Button */
+#reset {
+    background-color: #1f1f1f; /* Dark button background */
+    border: 2px solid #f44336; /* Red border */
+    color: #e0e0e0; /* Light text */
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+#reset:hover {
+    background-color: #f44336; /* Red background on hover */
+    border-color: #d32f2f; /* Darker red border on hover */
+    color: #121212; /* Dark text on hover */
+}
+
+/* Result and Score Display */
+.result, .score, .final, .computer {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #e0e0e0; /* Light text */
+}
+
+/* Final Result Display */
+.final {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50; /* Green for final result */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .result, .score, .final, .computer {
+        font-size: 16px;
+    }
+
+    .final {
+        font-size: 20px;
+    }
+}
